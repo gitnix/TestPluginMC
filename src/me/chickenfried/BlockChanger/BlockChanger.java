@@ -4,20 +4,15 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.EventPriority;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-/**
- * Created by Ryan on 5/28/2014.
- */
 public class BlockChanger extends JavaPlugin {
 
-    private static final Logger log = Logger.getLogger("Minecraft");
+    private static final Logger log = Logger.getLogger("MineCraft InitMAN");
     private final BlockChangerListener blockListener = new BlockChangerListener(this);
     public final ArrayList<Player> BlockChangerUsers = new ArrayList<Player>();
 
@@ -33,7 +28,7 @@ public class BlockChanger extends JavaPlugin {
     @Override
     public void onDisable()
     {
-        log.info("Blockchanger has been disabled!");
+        log.info("BlockChanger has been disabled!");
     }
 
     @Override
@@ -48,12 +43,12 @@ public class BlockChanger extends JavaPlugin {
 
         if (!enabled((Player) sender)) {
             BlockChangerUsers.add((Player)sender);
-            ((Player) sender).sendMessage(ChatColor.BLUE + "BlockChanger has been enabled!");
+            sender.sendMessage(ChatColor.BLUE + "BlockChanger has been enabled!");
         }
 
         else{
-            BlockChangerUsers.remove((Player)sender);
-            ((Player)sender).sendMessage(ChatColor.RED + "BlockChanger has been disabled!");
+            BlockChangerUsers.remove(sender);
+            sender.sendMessage(ChatColor.RED + "BlockChanger has been disabled!");
         }
 
 
