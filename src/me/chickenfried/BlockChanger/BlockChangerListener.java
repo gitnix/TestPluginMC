@@ -12,6 +12,8 @@ import org.bukkit.event.block.BlockDamageEvent;
  */
 public class BlockChangerListener implements Listener {
 
+    I AM A CAT
+
     public static BlockChanger plugin;
 
     public BlockChangerListener(BlockChanger instance){
